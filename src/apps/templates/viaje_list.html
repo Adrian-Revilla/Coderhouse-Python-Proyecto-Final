@@ -1,1 +1,13 @@
 {% extends "base_list.html" %}
+{% load static %}
+{% block th_iter %}
+	{% for th, td in o.items %}
+		
+		{% if th == "avatar_cliente" %}
+		<td class="align-middle text-center"><img class="image rounded d-block mx-auto" src=" {% get_media_prefix %}{{td}}" alt="avatar" style="height: 50;width: 50px;" /></td>
+		{% else %}
+			<td class="align-middle text-center">{{td}}</td>
+		{% endif %}
+		
+	{% endfor %}
+{% endblock th_iter %}

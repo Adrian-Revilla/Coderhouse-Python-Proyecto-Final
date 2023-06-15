@@ -27,12 +27,17 @@
 								<td class="align-middle text-center">{{td}}</td>
 							{% endfor %}
 						{% endblock th_iter %}
-						{% if user.is_authenticated %}		
+						{% if user.is_authenticated %}
 							<td class="align-middle">
 								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detalle" href="{{o.id}}" class="btn btn-lg"><i class="bi bi-database-exclamation"></i></a> 
 								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Actualizar" href="update/{{o.id}}" class="btn btn-lg "><i class="bi bi-database-dash"></i></a> 
 								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar" href="delete/{{o.id}}" class="btn btn-lg "><i class="bi bi-database-dash"></i></a> 
 							</td>
+						{% else %}
+							<td class="align-middle">
+								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detalle" href="{{o.id}}" class="btn btn-lg"><i class="bi bi-database-exclamation"></i></a>  
+							</td>
+							
 						{% endif %}
 					</tr>
 				{% endfor %}

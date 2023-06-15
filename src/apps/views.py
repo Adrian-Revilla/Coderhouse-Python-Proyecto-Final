@@ -84,7 +84,7 @@ class ConductorDetail(BaseDetail):
 
 class ConductorList(BaseList):
 	model = models.Conductor
-	custom_values_list = ['id', 'nombre_conductor']
+	custom_values_list = ['id','avatar_conductor', 'nombre_conductor']
 	template_name = "conductor_list.html"
 
 class ConductorUpdate(UpdateView):
@@ -143,7 +143,7 @@ class ViajeDetail(BaseDetail):
 class ViajeList(BaseList):
 	model = models.Viaje
 	template_name = "viaje_list.html"
-	custom_values_list = ['id', 'nombre_del_pasajero']
+	custom_values_list = ['id','avatar_cliente', 'nombre_del_pasajero']
 	
 	
 class ViajeUpdate(UpdateView):
