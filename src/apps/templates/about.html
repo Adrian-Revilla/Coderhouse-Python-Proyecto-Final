@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+	html, body {
+		height:100%
+	}
+	#about-box {
+		display:flex;
+		height: 95vh;
+		align-items:center;
+		justify-content: center;
+	}
+
+{% endblock custom_css %}
+
+{% block body_content %}
+	
+	<div id="about-box">
+		<div class="d-flex flex-column border-bottom rounded p-5 border rounded shadow-sm">
+			<p class="text-center">Página creada para el Proyecto final de CoderHouse.</p>
+			<p class="text-center">Curso de Python. Comision 40445.</p>
+			<p class="text-center">Adrián Revilla. 2023</p>
+		</div>
+	</div>
+
+{% endblock body_content %}

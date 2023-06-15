@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body_content %}
+	<header class="pt-5">
+		<div class="container px-lg-5">
+			<div class="p-4 p-lg-5 border-bottom rounded-3 text-center">
+				<div class="m-4 m-lg-5">
+					<h1 class="display-5 fw-bold">Hola, {% if user.is_authenticated %} {{ user.username }}  {% else %} Invitado {% endif %} 👋</h1>
+
+				</div>
+			</div>
+		</div>
+	</header>
+{% endblock body_content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block body_content %}
+	
+	<div class="container pt-5">
+		{% if objetos %}
+			<table class="table">
+				{% for o in objetos %}
+					{% if forloop.first %}
+					<thead >
+						<tr>
+							{% for th in o.keys %}
+								<th class="align-middle text-center">
+									{{ th }}
+								</th>
+							{% endfor %}
+							<th> </th>
+						</tr>
+					</thead>
+					{% endif %}
+					<tr>
+						{% block th_iter %}
+							{% for th, td in o.items %}
+								<td class="align-middle text-center">{{td}}</td>
+							{% endfor %}
+						{% endblock th_iter %}
+						{% if user.is_authenticated %}		
+							<td class="align-middle">
+								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detalle" href="{{o.id}}" class="btn btn-lg"><i class="bi bi-database-exclamation"></i></a> 
+								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Actualizar" href="update/{{o.id}}" class="btn btn-lg "><i class="bi bi-database-dash"></i></a> 
+								<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar" href="delete/{{o.id}}" class="btn btn-lg "><i class="bi bi-database-dash"></i></a> 
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+				{% if user.is_authenticated %}
+					<caption class="text-center">
+						<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Nuevo" href="create" class="btn btn-lg"><i class="bi bi-database-add"></i> Haz click aquí para añadir uno nuevo</a> 
+					</caption>
+				{% endif %}
+
+			</table>
+		{% else %}
+
+			<h3 class="text-center"><i class="bi bi-info-square-fill"></i> No hay información registrada en el sistema</h3>
+			{% if user.is_authenticated %}
+			<h5 class="text-center"> <a href="create" class="btn btn-lg"><i class="bi bi-database-add"></i> Haz click aquí para añadir uno nuevo</a> </h3>
+			{% endif %}
+		{% endif %}
+		
+	</div>
+
+{% endblock body_content %}
